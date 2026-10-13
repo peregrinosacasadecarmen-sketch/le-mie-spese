@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le mie spese</title>
+<meta name="description" content="Registro personale di spese ed entrate. I dati restano su questo dispositivo.">
+<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Spese">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="testa">
+  <div class="testa-riga">
+    <button class="icona-btn" id="btn-impostazioni" type="button" aria-label="Impostazioni e copia dei dati">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+    </button>
+    <div class="saldo">
+      <span class="saldo-et">Saldo</span>
+      <button class="saldo-val" id="btn-saldo" type="button" aria-label="Modifica il saldo"><span id="saldo-testo">0,00 €</span></button>
+    </div>
+    <button class="icona-btn" id="btn-vista" type="button" aria-label="Elenco delle operazioni">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path id="ico-vista" d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>
+    </button>
+  </div>
+  <div class="segmenti" id="tipi" role="group" aria-label="Tipo di movimento">
+    <button type="button" data-tipo="spesa" aria-pressed="true">Spese</button>
+    <button type="button" data-tipo="entrata" aria-pressed="false">Entrate</button>
+  </div>
+</header>
+
+<div class="allarme" id="allarme" role="alert" hidden></div>
+
+<main id="contenuto" tabindex="-1"></main>
+
+<button class="fab" id="fab" type="button" aria-label="Aggiungi una transazione">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+</button>
+
+<div class="avviso" id="avviso" role="status" aria-live="polite" hidden></div>
+
+<dialog class="foglio" id="foglio-tx" aria-labelledby="tx-titolo"></dialog>
+<dialog class="foglio" id="foglio-cat" aria-labelledby="cat-titolo"></dialog>
+<dialog class="foglio" id="foglio-saldo" aria-labelledby="saldo-titolo"></dialog>
+<dialog class="foglio" id="foglio-imp" aria-labelledby="imp-titolo"></dialog>
+
+<noscript><p style="padding:24px">Questa app ha bisogno di JavaScript per funzionare.</p></noscript>
+<script src="icone.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
